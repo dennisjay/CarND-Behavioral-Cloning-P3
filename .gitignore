@@ -4,3 +4,7 @@ logs/
 train/
 train_2/
 
+
+out/
+
+\.idea/
