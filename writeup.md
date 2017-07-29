@@ -55,7 +55,8 @@ The Behaviour_Cloneing.ipynb model.py file contains the code for training and sa
 
 ####1. An appropriate model architecture has been employed
 
-The model consists of the pretrained VGG-16 layers with imagenet weights. The classification part is replace by one 1024 neuron Dense-Layer with "relu"-Activation, followed by 3 smaller Dense Layers without an activation function.
+In the secound try the model consists of the pretrained VGG-16 layers with imagenet weights. The classification part is replace by one 1024 neuron Dense-Layer with "relu"-Activation, followed by 3 smaller Dense Layers without an activation function.
+Afterwards I switched to the NVIDIA net because it is smaller and better fitting to the input data, performance is better and loss is smaller.
 
 ####2. Attempts to reduce overfitting in the model
 
@@ -67,7 +68,8 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 ####4. Appropriate training data
 
-At the end I decided to use only the udacity dataset, because my datasets were made with the keyboard. When using my own data I got much higher training and validation loss.
+I decided to use only the udacity dataset, because my datasets were made with the keyboard. When using my own data I got much higher training and validation loss.
+Later on I found out that it's possibile to create training data with the mouse that was performing better.
 
 ###Model Architecture and Training Strategy
 
@@ -76,10 +78,25 @@ At the end I decided to use only the udacity dataset, because my datasets were m
 At the beginning I tried to apply three flattend Dense Layers. This approach was not perfoming very well so I decided to use the VGG-16 net as a base.
 ####2. Final Model Architecture
 
-The final architectur consists of a VGG-16 model as a Base and a 1024-Neuron dense layer with ReLU-Activation.  
+The secound architectur consists of a VGG-16 model as a Base and a 1024-Neuron dense layer with ReLU-Activation.  
+The last architecture is the NVIDIA-approach consitsing of these layers:
+
+cropping2d_1 (Cropping2D)    (None, 90, 320, 3)        0 
+lambda_1 (Lambda)            (None, 90, 320, 3)        0         
+conv2d_1 (Conv2D)            (None, 43, 158, 24)       1824      
+conv2d_2 (Conv2D)            (None, 20, 77, 36)        21636     
+conv2d_3 (Conv2D)            (None, 8, 37, 48)         43248     
+conv2d_4 (Conv2D)            (None, 6, 35, 64)         27712     
+conv2d_5 (Conv2D)            (None, 4, 33, 64)         36928     
+flatten_1 (Flatten)          (None, 8448)              0         
+dense_1 (Dense)              (None, 100)               844900    
+dense_2 (Dense)              (None, 50)                5050      
+dense_3 (Dense)              (None, 10)                510       
+dense_4 (Dense)              (None, 1)                 11        
 
 
 ####3. Creation of the Training Set & Training Process
 
 
-I the end I used the training data given by udacity because my own training data didn't perform very well.
+At the beginning I used the training data given by udacity because my own training data didn't perform very well. Later on 
+I found out that it's very important to create the dataset with a mouse.
