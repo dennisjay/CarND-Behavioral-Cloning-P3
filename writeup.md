@@ -16,13 +16,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./examples/1.png "Example 1"
+[image2]: ./examples/2.png "Example 2"
+[image3]: ./examples/3.png "Example 3"
+
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -60,7 +57,7 @@ Afterwards I switched to the NVIDIA net because it is smaller and better fitting
 
 ####2. Attempts to reduce overfitting in the model
 
-I did not consider any overfitting so I didn't apply any dropout or regularizers.
+I added a Dropout Layer to reduce overfitting in the model.
 
 ####3. Model parameter tuning
 
@@ -96,7 +93,9 @@ dense_4 (Dense)              (None, 1)                 11
 
 
 ####3. Creation of the Training Set & Training Process
-
+![alt text][image1]
+![alt text][image2]
+![alt text][image3]
 
 At the beginning I used the training data given by udacity because my own training data didn't perform very well. Later on 
-I found out that it's very important to create the dataset with a mouse.
+I found out that it's very important to create the dataset with a mouse. At the top one can see some example images from the dataset.
